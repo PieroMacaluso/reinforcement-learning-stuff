@@ -1,5 +1,5 @@
 # Reinforcement Learning Exercises
-Just a bunch of exercises created during my thesis work working on Reinforcement Learning.
+Just a bunch of exercises implemented during my thesis work working on Reinforcement Learning.
 
 ## Table of Contents
 
