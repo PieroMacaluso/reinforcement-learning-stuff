@@ -4,6 +4,10 @@
 The script needs the RandomWalk environment that can be found in this link
 [https://github.com/mimoralea/random-walk](https://github.com/mimoralea/random-walk).
 
+## Plots
+![Seven States](img/SevenStates.png)
+![TwentyOne States](img/TwentyOneStates.png)
+
 ## References
 The algorithm can be found in the book
 [Reinforcement Learning: An Introduction](http://incompleteideas.net/book/RLbook2018.pdf)
