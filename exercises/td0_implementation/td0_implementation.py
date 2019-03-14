@@ -4,11 +4,12 @@ import itertools
 
 import gym
 import gym_walk
+import numpy as np
 
 from matplotlib import pyplot as plt
 from matplotlib.ticker import MaxNLocator
 
-env = gym.make('WalkTwentyOneStates-v0')
+env = gym.make('WalkSevenStates-v0')
 
 
 def td0_prediction(policy, env, num_episodes, discount_factor=1.0, alpha=1.0):
@@ -76,24 +77,23 @@ def plot_random_walk(V, title="Value Function"):
 	def plot_scatter(v, graph_title):
 		fig = plt.figure(figsize=(10, 5))
 		ax = fig.add_subplot(111)
-		x = range(1, len(v[0]) + 1)
-		y = [x / (len(v[0]) + 1) for x in range(1, len(v[0]) + 1)]
+		x = range(0, len(v[0]) )
+		y = [x / (len(v[0]) + 1) for x in range(1, len(v[0])+1)]
 		surf = ax.plot(x, y, marker='o', label='True values')
 		
 		leg = ('1 episode', '10 episodes', '100 episodes')
-		
+		labels = [chr(idx + 65) for idx, val in enumerate(range(1, len(v[0])+1))]
+
 		for i_v, l in zip(v, leg):
-			surf = ax.plot(i_v.keys(), i_v.values(), marker='o', label=l)
+			surf = ax.plot(labels, i_v.values(), marker='o', label=l)
 		
 		ax.set_xlabel('State')
 		ax.set_ylabel('Estimated Value')
 		ax.set_title(graph_title)
 		# Only integer ticks
 		ax.xaxis.set_major_locator(MaxNLocator(integer=True))
-		# Label ticks with state's names
-		labels = [item.get_text() for item in ax.get_xticklabels()]
-		labels = [chr(idx + 96) for idx, val in enumerate(range(0, 21))]
-		ax.set_xticklabels(labels)
+		# One tick every integer
+		plt.xticks(np.arange(0, len(v[0]) + 1, 1.0))
 		# Plot legend
 		plt.legend()
 		plt.grid()
