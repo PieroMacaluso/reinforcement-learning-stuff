@@ -2,7 +2,7 @@
 Just a bunch of Python scripts implemented during my Master Thesis working on Reinforcement Learning using OpenAI Gym.
 
 ## Installation
-I suggest to use **pipenv** to install all the packages needed to execute correctly the exercises.
+I suggest you to use **pipenv** to install all the packages needed to execute correctly the exercises.
 ```bash
 git clone https://github.com/pieromacaluso/rl-exercises.git
 cd rl-exercises
