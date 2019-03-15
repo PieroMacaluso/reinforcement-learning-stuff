@@ -1,5 +1,5 @@
-# Reinforcement Learning Exercises
-Just a bunch of exercises implemented during my thesis work working on Reinforcement Learning.
+# Reinforcement Learning 
+Just a bunch of Python scripts implemented during my Master Thesis working on Reinforcement Learning using OpenAI Gym.
 
 ## Table of Contents
 ### Exercises 
