@@ -3,13 +3,13 @@ import sys
 import itertools
 
 import gym
-import gym_walk
+import gym_random_walk
 import numpy as np
 
 from matplotlib import pyplot as plt
 from matplotlib.ticker import MaxNLocator
 
-env = gym.make('WalkSevenStates-v0')
+env = gym.make('RandomWalkSeven-v0')
 
 
 def td_lambda_prediction(policy, env, num_episodes, discount_factor=1.0, alpha=1.0, lamb=0.0):
