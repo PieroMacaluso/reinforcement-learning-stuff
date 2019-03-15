@@ -9,6 +9,9 @@ cd rl-exercises
 pipenv install
 ```
 ## Table of Contents
+
+### Environments
+- [Random Walk](environments/gym-random-walk)
 ### Exercises 
 - Lecture 4: Model Free Prediction
    - TD Algorithm:
