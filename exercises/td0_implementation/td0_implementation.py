@@ -35,9 +35,9 @@ def td0_prediction(policy, env, num_episodes, discount_factor=1.0, alpha=1.0):
 	# The final value function
 	# The starting value is 0.5 for each non-terminal element, otherwise 0
 	v = np.ones(n_state)/2
-	v[0] = 0.0
-	v[n_state - 1] = 0.0
+	v[0] = v[n_state - 1] = 0.0
 	
+	# Loop on episodes
 	for i_episode in range(1, num_episodes + 1):
 		# Print out which episode we're on, useful for debugging.
 		if i_episode % 1000 == 0:
@@ -99,9 +99,12 @@ def plot_random_walk(v, title="Value Function"):
 	plot_scatter(v, title)
 
 
-v_1 = td0_prediction(uniform_left_right_policy, env, num_episodes=1, alpha=0.1)
-v_10 = td0_prediction(uniform_left_right_policy, env, num_episodes=10, alpha=0.1)
-v_100 = td0_prediction(uniform_left_right_policy, env, num_episodes=100, alpha=0.1)
+# HyperParameters
+alpha = 0.1
+
+v_1 = td0_prediction(uniform_left_right_policy, env, num_episodes=1, alpha=alpha)
+v_10 = td0_prediction(uniform_left_right_policy, env, num_episodes=10, alpha=alpha)
+v_100 = td0_prediction(uniform_left_right_policy, env, num_episodes=100, alpha=alpha)
 
 plot_random_walk((v_1, v_10, v_100), f"Random Walk TD (0) with {env.env.nS} states")
 
