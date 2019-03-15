@@ -11,5 +11,5 @@ The script needs the RandomWalk environment that can be found in this link
 ## References
 - [Reinforcement Learning: An Introduction](http://incompleteideas.net/book/RLbook2018.pdf)
 by Richard S. Sutton and Andrew G. Barto
-  - TD(0) Algorithm: Chapter 6, equation 6.2.
-  - RandomWalk example: Chapter 6, example 6.2.
+  - **TD(0) Algorithm**: Chapter 6, equation 6.2.
+  - **RandomWalk example**: Chapter 6, example 6.2.
