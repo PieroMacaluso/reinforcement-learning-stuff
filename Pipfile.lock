@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "498c6723d3fe3b7755f82ce6d78dc5ad5a2f858a053412a44149ea5b252fd4a1"
+            "sha256": "f696c92b27a848846cac77b7c5ebf98b413fb4d5ac9bc093b0429d1ab56a6015"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -57,8 +57,8 @@
             "index": "pypi",
             "version": "==0.12.0"
         },
-        "gym-walk": {
-            "path": "/home/pieromack/development/thesis/github_repos/random-walk"
+        "gym-random-walk": {
+            "path": "./environments/gym-random-walk"
         },
         "idna": {
             "hashes": [

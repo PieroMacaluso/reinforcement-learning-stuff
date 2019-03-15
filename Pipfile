@@ -8,7 +8,7 @@ verify_ssl = true
 [packages]
 matplotlib = "*"
 gym = "*"
-gym-walk = {path = "/home/pieromack/development/thesis/github_repos/random-walk"}
+gym-random-walk = {path = "./environments/gym-random-walk"}
 
 [requires]
 python_version = "3.7"
