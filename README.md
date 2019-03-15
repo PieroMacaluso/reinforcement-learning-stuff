@@ -2,6 +2,9 @@
 Just a bunch of Python scripts implemented during my Master Thesis working on Reinforcement Learning using OpenAI Gym.
 
 ## Table of Contents
+
+### Environments
+- [Random Walk](environments/gym-random-walk)
 ### Exercises 
 - Lecture 4: Model Free Prediction
    - TD Algorithm:
