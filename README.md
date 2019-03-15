@@ -4,8 +4,9 @@ Just a bunch of Python scripts implemented during my Master Thesis working on Re
 ## Table of Contents
 ### Exercises 
 - Lecture 4: Model Free Prediction
-   - [TD(0) Implementation in RandomWalk](exercises/td0_implementation)
-   - [TD(Lambda) Implementation in RandomWalk](exercises/tdLambda_implementation)
+   - TD Algorithm:
+      - [TD(0) Implementation in RandomWalk](exercises/td0_implementation)
+      - [TD(Lambda) Implementation in RandomWalk](exercises/tdLambda_implementation)
 
 
 ## References
