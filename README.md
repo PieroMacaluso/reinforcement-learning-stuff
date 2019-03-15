@@ -5,6 +5,8 @@ Just a bunch of exercises implemented during my thesis work working on Reinforce
 
 - Lecture 4: Model Free Prediction
    - [TD(0) Implementation in RandomWalk](exercises/td0_implementation)
+   - [TD(Lambda) Implementation in RandomWalk](exercises/tdLambda_implementation)
+
 
 ## References
 
