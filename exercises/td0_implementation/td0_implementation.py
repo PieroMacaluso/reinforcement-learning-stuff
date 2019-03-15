@@ -79,13 +79,13 @@ def plot_random_walk(V, title="Value Function"):
 		ax = fig.add_subplot(111)
 		x = range(0, len(v[0]) )
 		y = [x / (len(v[0]) + 1) for x in range(1, len(v[0])+1)]
-		surf = ax.plot(x, y, marker='o', label='True values')
+		ax.plot(x, y, marker='o', label='True values')
 		
 		leg = ('1 episode', '10 episodes', '100 episodes')
 		labels = [chr(idx + 65) for idx, val in enumerate(range(1, len(v[0])+1))]
 
 		for i_v, l in zip(v, leg):
-			surf = ax.plot(labels, i_v.values(), marker='o', label=l)
+			ax.plot(labels, i_v.values(), marker='o', label=l)
 		
 		ax.set_xlabel('State')
 		ax.set_ylabel('Estimated Value')
