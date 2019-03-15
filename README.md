@@ -1,11 +1,12 @@
-# Reinforcement Learning Exercises
-Just a bunch of exercises implemented during my thesis work working on Reinforcement Learning.
+# Reinforcement Learning 
+Just a bunch of Python scripts implemented during my Master Thesis working on Reinforcement Learning using OpenAI Gym.
 
 ## Table of Contents
-
+### Exercises 
 - Lecture 4: Model Free Prediction
-   - [TD(0) Implementation in RandomWalk](exercises/td0_implementation)
-   - [TD(Lambda) Implementation in RandomWalk](exercises/tdLambda_implementation)
+   - TD Algorithm:
+      - [TD(0) Implementation in RandomWalk](exercises/td0_implementation)
+      - [TD(Lambda) Implementation in RandomWalk](exercises/tdLambda_implementation)
 
 
 ## References
