@@ -34,9 +34,9 @@ def td0_prediction(policy, env, num_episodes, discount_factor=1.0, alpha=1.0):
 	n_state = env.env.nS
 	# The final value function
 	# The starting value is 0.5 for each non-terminal element, otherwise 0
-	V = {x: 0.5 for x in range(0, n_state)}
-	V[0] = 0.0
-	V[n_state - 1] = 0.0
+	v = np.ones(n_state)/2
+	v[0] = 0.0
+	v[n_state - 1] = 0.0
 	
 	for i_episode in range(1, num_episodes + 1):
 		# Print out which episode we're on, useful for debugging.
@@ -50,16 +50,12 @@ def td0_prediction(policy, env, num_episodes, discount_factor=1.0, alpha=1.0):
 		for t in itertools.count():
 			action = policy(state)
 			next_state, reward, done, _ = env.step(action)
-			V[state] += alpha * (reward + discount_factor * V[next_state] - V[state])
+			v[state] += alpha * (reward + discount_factor * v[next_state] - v[state])
 			if done:
 				break
 			state = next_state
 	
-	# Removing non terminal states.
-	# This will be useful for plotting
-	del V[0]
-	del V[n_state - 1]
-	return V
+	return v
 
 
 def uniform_left_right_policy(observation):
@@ -69,7 +65,7 @@ def uniform_left_right_policy(observation):
 	return random.randint(0, 1)
 
 
-def plot_random_walk(V, title="Value Function"):
+def plot_random_walk(v, title="Value Function"):
 	"""
 	Plots the value function as a surface plot.
 	"""
@@ -77,15 +73,16 @@ def plot_random_walk(V, title="Value Function"):
 	def plot_scatter(v, graph_title):
 		fig = plt.figure(figsize=(10, 5))
 		ax = fig.add_subplot(111)
-		x = range(0, len(v[0]) )
-		y = [x / (len(v[0]) + 1) for x in range(1, len(v[0])+1)]
+		n_state = len(v[0])
+		x = range(0, n_state-2)
+		y = [x / (n_state-1) for x in range(1, n_state-1)]
 		ax.plot(x, y, marker='o', label='True values')
 		
 		leg = ('1 episode', '10 episodes', '100 episodes')
-		labels = [chr(idx + 65) for idx, val in enumerate(range(1, len(v[0])+1))]
+		labels = [chr(idx + 65) for idx, val in enumerate(range(1, n_state-1))]
 
 		for i_v, l in zip(v, leg):
-			ax.plot(labels, i_v.values(), marker='o', label=l)
+			ax.plot(labels, i_v[1:(n_state-1)], marker='o', label=l)
 		
 		ax.set_xlabel('State')
 		ax.set_ylabel('Estimated Value')
@@ -93,19 +90,19 @@ def plot_random_walk(V, title="Value Function"):
 		# Only integer ticks
 		ax.xaxis.set_major_locator(MaxNLocator(integer=True))
 		# One tick every integer
-		plt.xticks(np.arange(0, len(v[0]) + 1, 1.0))
+		plt.xticks(np.arange(0, n_state-1, 1.0))
 		# Plot legend
 		plt.legend()
 		plt.grid()
 		plt.show()
 	
-	plot_scatter(V, title)
+	plot_scatter(v, title)
 
 
-V_1 = td0_prediction(uniform_left_right_policy, env, num_episodes=1, alpha=0.1)
-V_10 = td0_prediction(uniform_left_right_policy, env, num_episodes=10, alpha=0.1)
-V_100 = td0_prediction(uniform_left_right_policy, env, num_episodes=100, alpha=0.1)
+v_1 = td0_prediction(uniform_left_right_policy, env, num_episodes=1, alpha=0.1)
+v_10 = td0_prediction(uniform_left_right_policy, env, num_episodes=10, alpha=0.1)
+v_100 = td0_prediction(uniform_left_right_policy, env, num_episodes=100, alpha=0.1)
 
-plot_random_walk((V_1, V_10, V_100), f"Random Walk TD (0) with {env.env.nS} states")
+plot_random_walk((v_1, v_10, v_100), f"Random Walk TD (0) with {env.env.nS} states")
 
 pass
