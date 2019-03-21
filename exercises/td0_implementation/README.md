@@ -1,8 +1,7 @@
 # TD(0) Implementation
 
 ## Package required
-The script needs the RandomWalk environment that can be found in this link
-[https://github.com/mimoralea/random-walk](https://github.com/mimoralea/random-walk).
+The script needs the [RandomWalk environment](../../environments/gym-random-walk).
 
 ## Plots
 ![Seven States](img/SevenStates.png)
